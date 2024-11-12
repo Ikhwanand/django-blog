@@ -1,0 +1,44 @@
+# Ignore Django-specific files
+*.pyc
+*.log
+*.db
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Ignore operating system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore virtual environment files
+env/
+venv/
+virtualenv/
+
+# Ignore static files
+staticfiles/
+
+# Ignore media files
+media/
+
+# Ignore cache files
+__pycache__/
+blog/__pycache__/
+myblog/__pycache__/
+
+# Ignore Django's built-in files
+django_extensions/
+django_debug_toolbar/
+
+# Ignore specific files
+blog/migrations/
+
+# Ignore directories
+node_modules/
+bower_components/
+
+db.sqlite3

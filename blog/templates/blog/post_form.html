@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if form.instance.pk %}Edit Post{% else %}New Post{% endif %}{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container mt-4 pb-4">
+        <h1 class="my-4">{% if form.instance.pk %}Edit Post{% else %}New Post{% endif %}</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+        <a href="{% url 'blog:post_list' %}" class="btn btn-secondary mt-3">Back to Posts</a>
+    </div>
+</main>
+
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Blogy Website 2023</p></div>
+</footer>
+{% endblock %}

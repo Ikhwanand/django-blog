@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container mt-4 pb-4">
+        <h1 class="my-4">{{ post.title }}</h1>
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class='img-fluid mb-4 rounded' style='width: 90vw; height: 90vh; object-fit: cover;'>
+        {% endif %}
+        <p>{{ post.content }}</p>
+        <p><small>By {{ post.author }} on {{ post.created_at }}</small></p>
+        {% if post.category %}
+            <p><small>Category: {{ post.category }}</small></p>
+        {% endif %}
+        <a href="{% url 'blog:post_list' %}" class='btn btn-secondary'>Back to Posts</a>
+        {% if user == post.author %}
+            <a href="{% url 'blog:post_edit' post.pk %}" class='btn btn-primary'>Edit</a>
+            <a href="{% url 'blog:post_delete' post.pk %}" class='btn btn-danger'>Delete</a>
+        {% endif %}
+    </div>
+</main>
+
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Blogy Website 2023</p></div>
+</footer>
+{% endblock %}
